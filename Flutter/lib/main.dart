@@ -13,6 +13,7 @@ class BudgetApp extends StatelessWidget {
       title: 'Budget App',
       theme: ThemeData(
         primarySwatch: Colors.green,
+        fontFamily: 'Poppins',
       ),
       home: const MyHomePage(title: 'Budget App'),
     );
