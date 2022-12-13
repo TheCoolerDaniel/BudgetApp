@@ -1,4 +1,3 @@
-import 'package:budget_app/main.dart';
 import 'package:flutter/material.dart';
 
 class TransactionTile extends StatelessWidget {

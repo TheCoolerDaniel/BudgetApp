@@ -1,6 +1,6 @@
-import 'package:budget_app/core/clickable.dart';
-import 'package:budget_app/pages/transactions/transactionsView.dart';
 import 'package:flutter/material.dart';
+
+import 'presentation/pages/transactions/transactions_view.dart';
 
 void main() {
   runApp(const MyApp());

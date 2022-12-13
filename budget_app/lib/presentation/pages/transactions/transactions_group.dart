@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../main.dart';
-import 'transactionsTile.dart';
+import '../../../main.dart';
+import 'transactions_tile.dart';
 
 class TransactionsGroup extends StatelessWidget {
   const TransactionsGroup({Key? key}) : super(key: key);

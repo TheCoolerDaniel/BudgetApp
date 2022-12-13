@@ -1,7 +1,7 @@
-import 'package:budget_app/pages/transactions/transactionsGroup.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/primaryButton.dart';
+import '../../core/primary_button.dart';
+import 'transactions_group.dart';
 
 class TransactionsView extends StatelessWidget {
   const TransactionsView({Key? key}) : super(key: key);
