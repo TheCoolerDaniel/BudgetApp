@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:budget_app/presentation/helpers/brand_colors.dart'
+    as brand_colors;
+import 'package:budget_app/presentation/helpers/brand_fonts.dart'
+    as brand_fonts;
 
 import 'presentation/pages/transactions/transactions_view.dart';
 
@@ -15,7 +19,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Budget App',
       theme: ThemeData(
-        primarySwatch: Colors.green,
         fontFamily: 'Poppins',
       ),
       home: const MyHomePage(title: 'Budget App'),
@@ -40,7 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: brand_colors.primaryColor,
+        title: Text(
+          widget.title,
+          style: brand_fonts.titleDark,
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -58,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.green,
+        selectedItemColor: brand_colors.primaryColor,
         onTap: (newIndex) {
           setState(() {
             _selectedIndex = newIndex;
@@ -67,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: SizedBox(
         width: MediaQuery.of(context).size.width,
-        child: TransactionsView(),
+        child: const TransactionsView(),
       ),
     );
   }

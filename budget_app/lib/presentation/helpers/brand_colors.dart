@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 // BACKGROUNDS
-const primaryColor = Color.fromARGB(255, 199, 199, 199);
+const primaryColor = Color.fromARGB(255, 241, 241, 241);
+const secondaryColor = Color.fromARGB(255, 255, 255, 255);
 
 // FONTS
 const titleDark = const Color(0xFF000000);

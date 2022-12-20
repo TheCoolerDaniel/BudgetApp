@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:budget_app/presentation/helpers/brand_colors.dart'
+    as brand_colors;
 
 import '../../core/primary_button.dart';
 import 'transactions_group.dart';
@@ -13,8 +15,15 @@ class TransactionsView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          height: 100,
+          alignment: Alignment.center,
+          height: 60,
+          width: MediaQuery.of(context).size.width,
           color: Colors.grey,
+          child: Container(
+            decoration: BoxDecoration(color: brand_colors.secondaryColor),
+            alignment: Alignment.center,
+            child: const Text("Today"),
+          ),
         ),
         TransactionsGroup(),
         TransactionsGroup(),
@@ -23,6 +32,7 @@ class TransactionsView extends StatelessWidget {
           text: "Neue Transaktion",
           onPressed: () {},
         ),
+        SizedBox(height: 30),
       ],
     );
   }

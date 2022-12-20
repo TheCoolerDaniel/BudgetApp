@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:budget_app/presentation/helpers/brand_colors.dart'
+    as brand_colors;
 
 class TransactionTile extends StatelessWidget {
   static const double _iconDiameter = 30;
@@ -18,7 +20,7 @@ class TransactionTile extends StatelessWidget {
             width: _iconDiameter,
             decoration: const BoxDecoration(
               shape: BoxShape.circle,
-              color: Colors.green,
+              color: brand_colors.primaryColor,
             ),
           ),
           SizedBox(width: 10),
