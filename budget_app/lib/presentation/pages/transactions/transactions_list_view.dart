@@ -1,12 +1,14 @@
+import 'package:budget_app/presentation/pages/transactions/transactions_add_view.dart';
 import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
+import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
 
 import '../../core/primary_button.dart';
 import 'transactions_group.dart';
 
-class TransactionsView extends StatelessWidget {
-  const TransactionsView({Key? key}) : super(key: key);
+class TransactionsListView extends StatelessWidget {
+  const TransactionsListView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +24,14 @@ class TransactionsView extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(color: brand_colors.secondaryColor),
             alignment: Alignment.center,
-            child: const Text("Today"),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(Icons.arrow_back_ios),
+                Text("Heute"),
+                Icon(Icons.arrow_forward_ios),
+              ],
+            ),
           ),
         ),
         TransactionsGroup(),
@@ -30,9 +39,18 @@ class TransactionsView extends StatelessWidget {
         Expanded(child: SizedBox()),
         PrimaryButton(
           text: "Neue Transaktion",
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const TransactionsAddView(),
+              ),
+            );
+          },
         ),
-        SizedBox(height: 30),
+        SizedBox(
+          height: spacing.buttonOffsetBottom,
+        ),
       ],
     );
   }

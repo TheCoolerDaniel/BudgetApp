@@ -3,16 +3,33 @@ import './brand_colors.dart' as brand_colors;
 
 const _fontFamilyDefault = "Poppins";
 
-const _sizeTitle = 20.0;
+const _sizeHuge = 25.0;
+const _sizeTitle = 18.0;
 const _sizeCopy = 14.0;
 const _sizeDetail = 11.0;
 
 const _weightDefault = FontWeight.w400;
 const _weightStrong = FontWeight.w800;
 
+const hugeDark = TextStyle(
+  fontFamily: _fontFamilyDefault,
+  color: brand_colors.copyDark,
+  fontSize: _sizeHuge,
+  fontWeight: _weightStrong,
+  decoration: TextDecoration.none,
+);
+
 const titleDark = TextStyle(
   fontFamily: _fontFamilyDefault,
   color: brand_colors.copyDark,
+  fontSize: _sizeTitle,
+  fontWeight: _weightStrong,
+  decoration: TextDecoration.none,
+);
+
+const titleLight = TextStyle(
+  fontFamily: _fontFamilyDefault,
+  color: brand_colors.copyLight,
   fontSize: _sizeCopy,
   fontWeight: _weightStrong,
   decoration: TextDecoration.none,
@@ -26,9 +43,17 @@ const primaryButton = TextStyle(
   decoration: TextDecoration.none,
 );
 
-const COPY_DARK = TextStyle(
+const copyDark = TextStyle(
   fontFamily: _fontFamilyDefault,
   color: brand_colors.copyDark,
+  fontSize: _sizeCopy,
+  fontWeight: _weightDefault,
+  decoration: TextDecoration.none,
+);
+
+const copyLight = TextStyle(
+  fontFamily: _fontFamilyDefault,
+  color: brand_colors.copyLight,
   fontSize: _sizeCopy,
   fontWeight: _weightDefault,
   decoration: TextDecoration.none,
