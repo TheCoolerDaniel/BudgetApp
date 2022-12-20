@@ -1,10 +1,12 @@
+import 'package:budget_app/presentation/core/custom_app_bar.dart';
+import 'package:budget_app/presentation/pages/analysis/analysis_view.dart';
 import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
 
-import 'presentation/pages/transactions/transactions_view.dart';
+import 'presentation/pages/transactions/transactions_list_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,25 +41,33 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
+  Widget getView(int selectedIndex) {
+    switch (selectedIndex) {
+      case 0:
+        return AnalysisView();
+      case 1:
+        return TransactionsListView();
+      default:
+        // Should never occur.
+        return TransactionsListView();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: brand_colors.primaryColor,
-        title: Text(
-          widget.title,
-          style: brand_fonts.titleDark,
-        ),
+      appBar: CustomAppBar(
+        title: "Turbo Budget",
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.edit),
-            label: 'Erfassen',
+            label: 'Analyse',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.pie_chart),
-            label: 'Analysieren',
+            label: 'Erfassen',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
@@ -73,8 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
         },
       ),
       body: SizedBox(
+        height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: const TransactionsView(),
+        child: getView(_selectedIndex),
       ),
     );
   }
