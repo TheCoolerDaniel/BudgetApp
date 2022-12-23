@@ -20,7 +20,7 @@ class TransactionsAddView extends StatelessWidget {
       body: Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        color: brand_colors.secondaryColor,
+        color: brand_colors.backgroundColor,
         padding: const EdgeInsets.only(
             bottom: spacing.buttonOffsetBottom,
             left: sidePadding,

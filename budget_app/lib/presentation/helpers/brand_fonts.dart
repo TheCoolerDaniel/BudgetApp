@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './brand_colors.dart' as brand_colors;
 
-const _fontFamilyDefault = "Poppins";
+const fontFamilyDefault = "Poppins";
 
 const _sizeHuge = 25.0;
 const _sizeTitle = 18.0;
@@ -12,7 +12,7 @@ const _weightDefault = FontWeight.w400;
 const _weightStrong = FontWeight.w800;
 
 const hugeDark = TextStyle(
-  fontFamily: _fontFamilyDefault,
+  fontFamily: fontFamilyDefault,
   color: brand_colors.copyDark,
   fontSize: _sizeHuge,
   fontWeight: _weightStrong,
@@ -20,7 +20,7 @@ const hugeDark = TextStyle(
 );
 
 const titleDark = TextStyle(
-  fontFamily: _fontFamilyDefault,
+  fontFamily: fontFamilyDefault,
   color: brand_colors.copyDark,
   fontSize: _sizeTitle,
   fontWeight: _weightStrong,
@@ -28,7 +28,7 @@ const titleDark = TextStyle(
 );
 
 const titleLight = TextStyle(
-  fontFamily: _fontFamilyDefault,
+  fontFamily: fontFamilyDefault,
   color: brand_colors.copyLight,
   fontSize: _sizeCopy,
   fontWeight: _weightStrong,
@@ -36,7 +36,7 @@ const titleLight = TextStyle(
 );
 
 const primaryButton = TextStyle(
-  fontFamily: _fontFamilyDefault,
+  fontFamily: fontFamilyDefault,
   color: brand_colors.copyDark,
   fontSize: _sizeCopy,
   fontWeight: _weightStrong,
@@ -44,7 +44,7 @@ const primaryButton = TextStyle(
 );
 
 const copyDark = TextStyle(
-  fontFamily: _fontFamilyDefault,
+  fontFamily: fontFamilyDefault,
   color: brand_colors.copyDark,
   fontSize: _sizeCopy,
   fontWeight: _weightDefault,
@@ -52,7 +52,7 @@ const copyDark = TextStyle(
 );
 
 const copyLight = TextStyle(
-  fontFamily: _fontFamilyDefault,
+  fontFamily: fontFamilyDefault,
   color: brand_colors.copyLight,
   fontSize: _sizeCopy,
   fontWeight: _weightDefault,
@@ -60,7 +60,7 @@ const copyLight = TextStyle(
 );
 
 const detailDark = TextStyle(
-  fontFamily: _fontFamilyDefault,
+  fontFamily: fontFamilyDefault,
   color: brand_colors.copyDark,
   fontSize: _sizeDetail,
   fontWeight: _weightDefault,

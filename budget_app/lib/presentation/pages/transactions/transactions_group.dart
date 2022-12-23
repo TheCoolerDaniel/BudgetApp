@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../main.dart';
+import '../../navigation/main_page.dart';
 import 'transactions_tile.dart';
 
 class TransactionsGroup extends StatelessWidget {
@@ -9,12 +9,12 @@ class TransactionsGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(
-          horizontal: MyHomePage.horizontalPadding, vertical: 10),
+          horizontal: MainPage.horizontalPadding, vertical: 10),
       child: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text("Text"), Text("-CHF 108")],
+            children: const [Text("Text"), Text("-CHF 108")],
           ),
           const TransactionTile()
         ],

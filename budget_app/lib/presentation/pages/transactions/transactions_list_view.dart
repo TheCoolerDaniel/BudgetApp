@@ -22,7 +22,7 @@ class TransactionsListView extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           color: Colors.grey,
           child: Container(
-            decoration: BoxDecoration(color: brand_colors.secondaryColor),
+            decoration: BoxDecoration(color: brand_colors.backgroundColor),
             alignment: Alignment.center,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
