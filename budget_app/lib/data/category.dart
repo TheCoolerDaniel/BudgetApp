@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Category {
+class TransactionCategory {
   final String name;
   final Widget icon;
   final Color color;
 
-  Category({
+  TransactionCategory({
     required this.name,
     required this.icon,
     required this.color,

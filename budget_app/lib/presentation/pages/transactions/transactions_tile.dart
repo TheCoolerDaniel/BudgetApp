@@ -1,12 +1,15 @@
+import 'package:budget_app/data/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 
 class TransactionTile extends StatelessWidget {
   static const double _iconDiameter = 30;
+  final Transaction transaction;
 
   const TransactionTile({
     Key? key,
+    required this.transaction,
   }) : super(key: key);
 
   @override
@@ -23,18 +26,18 @@ class TransactionTile extends StatelessWidget {
               color: brand_colors.primaryColor,
             ),
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Category"),
-              Text("Comment"),
+              Text(transaction.category.name),
+              Text(transaction.comment),
             ],
           ),
-          Expanded(
+          const Expanded(
             child: SizedBox(),
           ),
-          Text("CHF 108"),
+          Text("CHF ${transaction.amount.toString()}"),
         ],
       ),
     );

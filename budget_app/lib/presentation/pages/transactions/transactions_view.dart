@@ -1,5 +1,8 @@
+import 'package:budget_app/data/category.dart';
+import 'package:budget_app/data/transaction.dart';
 import 'package:budget_app/presentation/core/empty_view.dart';
 import 'package:budget_app/presentation/app_state.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
@@ -53,8 +56,22 @@ class _TransactionsViewState extends State<TransactionsView> {
                       ),
                     ),
                   ),
-                  TransactionsGroup(),
-                  TransactionsGroup(),
+                  TransactionsGroup(
+                    date: "Heute",
+                    transactions: [
+                      Transaction(
+                        amount: 100,
+                        category: TransactionCategory(
+                          name: "Verpflegung",
+                          icon: SizedBox(),
+                          color: Colors.red,
+                        ),
+                        comment: "Pizza bestellt",
+                        transactionTime: DateTime.now(),
+                        enteredTime: DateTime.now(),
+                      )
+                    ],
+                  ),
                 ],
               ),
         Positioned(
