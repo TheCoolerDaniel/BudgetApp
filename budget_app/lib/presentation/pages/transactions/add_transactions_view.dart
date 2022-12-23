@@ -1,3 +1,4 @@
+import 'package:budget_app/presentation/app_state.dart';
 import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
@@ -7,12 +8,15 @@ import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 import 'package:budget_app/presentation/core/custom_app_bar.dart';
 import 'package:budget_app/presentation/core/primary_button.dart';
 
-class TransactionsAddView extends StatelessWidget {
-  const TransactionsAddView({Key? key}) : super(key: key);
+class AddTransactionView extends StatelessWidget {
+  final VoidCallback saveAction;
+  const AddTransactionView({
+    Key? key,
+    required this.saveAction,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    const double bottomPadding = 80;
     const double sidePadding = 20;
 
     return Scaffold(
@@ -85,10 +89,9 @@ class TransactionsAddView extends StatelessWidget {
               child: SizedBox(),
             ),
             PrimaryButton(
-                text: "Speichern",
-                onPressed: () {
-                  Navigator.pop(context);
-                })
+              text: "Speichern",
+              onPressed: saveAction,
+            )
           ],
         ),
       ),

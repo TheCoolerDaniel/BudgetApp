@@ -5,5 +5,6 @@ const double paddingSide = 15;
 const double separatorSmall = 15;
 const double separatorMedium = 30;
 
-// RADIUS
+// MISC
 const double borderRadius = 15;
+const double iconHeight = 100;

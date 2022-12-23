@@ -7,7 +7,7 @@ import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 import '../core/custom_app_bar.dart';
 import '../pages/analysis/analysis_view.dart';
-import '../pages/transactions/transactions_list_view.dart';
+import '../pages/transactions/transactions_view.dart';
 
 class HomePage extends StatefulWidget {
   static const double horizontalPadding = 10;
@@ -21,7 +21,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
 
   _SelectableView getView(int selectedIndex) {
     switch (selectedIndex) {
@@ -33,13 +33,13 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return _SelectableView(
           title: "Transaktionen",
-          view: const TransactionsListView(),
+          view: const TransactionsView(),
         );
       default:
         // Should never occur.
         return _SelectableView(
           title: "Transaktionen",
-          view: const TransactionsListView(),
+          view: const TransactionsView(),
         );
     }
   }
