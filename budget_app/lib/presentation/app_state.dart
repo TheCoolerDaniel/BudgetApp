@@ -1,5 +1,7 @@
+import 'package:budget_app/data/transaction.dart';
+
 AppState state = AppState();
 
 class AppState {
-  bool hasTransaction = false;
+  List<Transaction> transactions = [];
 }

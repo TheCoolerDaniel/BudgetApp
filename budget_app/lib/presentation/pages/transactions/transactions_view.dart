@@ -22,12 +22,48 @@ class TransactionsView extends StatefulWidget {
 }
 
 class _TransactionsViewState extends State<TransactionsView> {
+  List<Widget> buildTransactionGroups(List<Transaction> transactions) {
+    List<TransactionsGroup> transactionGroups = [];
+
+    // TODO DANIEL: Should probably sort this elsewhere.
+    transactions
+        .sort(((a, b) => a.transactionTime.compareTo(b.transactionTime)));
+
+    // TODO DANIEL: Check only day without checking time.
+    String currentDate = transactions.first.getDate();
+    List<Transaction> sameDateList = [];
+
+    for (Transaction transaction in transactions) {
+      if (transaction.getDate() != currentDate) {
+        transactionGroups.add(
+          TransactionsGroup(
+            date: sameDateList.first.getDate(),
+            transactions: sameDateList,
+          ),
+        );
+
+        sameDateList = [];
+        currentDate = transaction.getDate();
+      }
+
+      sameDateList.add(transaction);
+    }
+    transactionGroups.add(
+      TransactionsGroup(
+        date: sameDateList.first.getDate(),
+        transactions: sameDateList,
+      ),
+    );
+
+    return transactionGroups;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.topCenter,
       children: [
-        !state.hasTransaction
+        state.transactions.isEmpty
             ? const EmptyView(
                 iconAddress: "assets/icons/lightning.png",
                 title: "Noch keine Buchungen",
@@ -56,21 +92,8 @@ class _TransactionsViewState extends State<TransactionsView> {
                       ),
                     ),
                   ),
-                  TransactionsGroup(
-                    date: "Heute",
-                    transactions: [
-                      Transaction(
-                        amount: 100,
-                        category: TransactionCategory(
-                          name: "Verpflegung",
-                          icon: SizedBox(),
-                          color: Colors.red,
-                        ),
-                        comment: "Pizza bestellt",
-                        transactionTime: DateTime.now(),
-                        enteredTime: DateTime.now(),
-                      )
-                    ],
+                  Column(
+                    children: buildTransactionGroups(state.transactions),
                   ),
                 ],
               ),
@@ -86,7 +109,19 @@ class _TransactionsViewState extends State<TransactionsView> {
                     saveAction: () {
                       Navigator.pop(context);
                       setState(() {
-                        state.hasTransaction = true;
+                        state.transactions.add(
+                          Transaction(
+                            amount: 100,
+                            category: TransactionCategory(
+                              name: "Verpflegung",
+                              icon: SizedBox(),
+                              color: Colors.red,
+                            ),
+                            comment: "Pizza bestellt",
+                            transactionTime: DateTime.now(),
+                            enteredTime: DateTime.now(),
+                          ),
+                        );
                       });
                     },
                   ),

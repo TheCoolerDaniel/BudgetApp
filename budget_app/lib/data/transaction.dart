@@ -1,4 +1,5 @@
 import 'package:budget_app/data/category.dart';
+import 'package:intl/intl.dart';
 
 class Transaction {
   final int amount;
@@ -14,4 +15,8 @@ class Transaction {
     required this.transactionTime,
     required this.enteredTime,
   });
+
+  String getDate() {
+    return DateFormat('dd.M.yyyy').format(transactionTime);
+  }
 }
