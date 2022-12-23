@@ -41,23 +41,34 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  Widget getView(int selectedIndex) {
+  _SelectableView getView(int selectedIndex) {
     switch (selectedIndex) {
       case 0:
-        return AnalysisView();
+        return _SelectableView(
+          title: "Analyse",
+          view: AnalysisView(),
+        );
       case 1:
-        return TransactionsListView();
+        return _SelectableView(
+          title: "Transaktionen",
+          view: TransactionsListView(),
+        );
       default:
         // Should never occur.
-        return TransactionsListView();
+        return _SelectableView(
+          title: "Transaktionen",
+          view: TransactionsListView(),
+        );
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    _SelectableView selectedView = getView(_selectedIndex);
+
     return Scaffold(
       appBar: CustomAppBar(
-        title: "Turbo Budget",
+        title: selectedView.title,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -85,8 +96,18 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: getView(_selectedIndex),
+        child: selectedView.view,
       ),
     );
   }
+}
+
+class _SelectableView {
+  final String title;
+  final Widget view;
+
+  _SelectableView({
+    required this.title,
+    required this.view,
+  });
 }

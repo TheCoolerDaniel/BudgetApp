@@ -58,3 +58,11 @@ const copyLight = TextStyle(
   fontWeight: _weightDefault,
   decoration: TextDecoration.none,
 );
+
+const detailDark = TextStyle(
+  fontFamily: _fontFamilyDefault,
+  color: brand_colors.copyDark,
+  fontSize: _sizeDetail,
+  fontWeight: _weightDefault,
+  decoration: TextDecoration.none,
+);
