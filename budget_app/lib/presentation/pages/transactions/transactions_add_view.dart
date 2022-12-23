@@ -3,7 +3,7 @@ import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
-import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
+import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 import 'package:budget_app/presentation/core/custom_app_bar.dart';
 import 'package:budget_app/presentation/core/primary_button.dart';
 
@@ -22,7 +22,7 @@ class TransactionsAddView extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         color: brand_colors.backgroundColor,
         padding: const EdgeInsets.only(
-            bottom: spacing.buttonOffsetBottom,
+            bottom: constants.buttonOffsetBottom,
             left: sidePadding,
             right: sidePadding),
         child: Column(

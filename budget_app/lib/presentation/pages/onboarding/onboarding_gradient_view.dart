@@ -4,21 +4,23 @@ import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
-import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
+import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 import '../../core/tertiary_button.dart';
 import '../../navigation/home_page.dart';
 
 class OnboardingGradientView extends StatelessWidget {
   final String title;
-  final String description;
-  final VoidCallback continueOnboarding;
+  final String? description;
+  final List<Widget> content;
+  final MainAxisAlignment mainAxisAlignment;
 
   const OnboardingGradientView({
     Key? key,
     required this.title,
-    required this.description,
-    required this.continueOnboarding,
+    this.description,
+    required this.content,
+    this.mainAxisAlignment = MainAxisAlignment.start,
   }) : super(key: key);
 
   @override
@@ -27,10 +29,10 @@ class OnboardingGradientView extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(
-        top: spacing.appBarOffsetBottom,
-        bottom: spacing.buttonOffsetBottom,
-        left: spacing.paddingSide,
-        right: spacing.paddingSide,
+        top: constants.appBarOffsetBottom,
+        bottom: constants.buttonOffsetBottom,
+        left: constants.paddingSide,
+        right: constants.paddingSide,
       ),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -41,28 +43,17 @@ class OnboardingGradientView extends StatelessWidget {
       ),
       child: SafeArea(
         child: Column(
+          mainAxisAlignment: mainAxisAlignment,
           children: [
-            const Text("Willkommen bei Turbo Budget!",
-                style: brand_fonts.titleLight),
-            const Text(
-              "Es ist erwiesen, dass ein konkretes Sparziel dazu motiviert, deine finanziellen Ziele zu erreichen. Bist du bereit?",
-              style: brand_fonts.copyLight,
+            Column(
+              children: [
+                Text(title, style: brand_fonts.titleLight),
+                if (description != null)
+                  Text(description!, style: brand_fonts.copyLight),
+              ],
             ),
-            const Expanded(child: SizedBox()),
-            PrimaryButton(
-              text: "Sparziel setzen",
-              onPressed: continueOnboarding,
-            ),
-            TertiaryButton(
-              text: "Überspringen",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
-              },
+            Column(
+              children: content,
             ),
           ],
         ),

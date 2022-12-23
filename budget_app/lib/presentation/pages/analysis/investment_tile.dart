@@ -3,7 +3,7 @@ import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
-import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
+import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 import 'package:budget_app/data/investment.dart';
 
@@ -17,7 +17,7 @@ class InvestmentTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const double spaceBetween = spacing.separatorMedium;
+    const double spaceBetween = constants.separatorMedium;
     const _SubTile emptySpace = _SubTile(
       title: "",
       width: spaceBetween,
@@ -83,13 +83,13 @@ class _SubTile extends StatelessWidget {
           description,
           style: brand_fonts.detailDark,
         ),
-        SizedBox(height: spacing.separatorSmall),
+        SizedBox(height: constants.separatorSmall),
         Container(
           height: 2,
           width: width,
           color: brand_colors.borderColor,
         ),
-        SizedBox(height: spacing.separatorSmall),
+        SizedBox(height: constants.separatorSmall),
         Column(
           children: subRows.map((row) => Text(row)).toList(),
         ),

@@ -17,3 +17,4 @@ const borderColor = Color(0xFFAAAAAA);
 const titleDark = Color(0xFF000000);
 const copyDark = Color(0xFF000000);
 const copyLight = Color(0xFFFFFFFF);
+const inactiveColor = Color(0xFFAAAAAA);

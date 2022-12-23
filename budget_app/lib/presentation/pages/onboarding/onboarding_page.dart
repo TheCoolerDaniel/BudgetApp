@@ -8,7 +8,7 @@ import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
-import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
+import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 import '../../core/tertiary_button.dart';
 
@@ -22,7 +22,7 @@ class OnboardingPage extends StatefulWidget {
 class _OnboardingPageState extends State<OnboardingPage> {
   int currentViewIndex = 0;
 
-  Widget GetCurrentView(int viewIndex) {
+  Widget getCurrentView(int viewIndex) {
     switch (viewIndex) {
       case 0:
         return WelcomeView(
@@ -35,25 +35,32 @@ class _OnboardingPageState extends State<OnboardingPage> {
       case 1:
         return ChooseGoalView(
           continueOnboarding: () {
-            setState(() {});
+            setState(() {
+              currentViewIndex++;
+            });
           },
         );
       case 2:
         return EnterSavingsView(
           continueOnboarding: () {
-            setState(() {});
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomePage(),
+              ),
+            );
           },
         );
       default:
         // Should never occur
-        return SizedBox();
+        return const SizedBox();
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GetCurrentView(currentViewIndex),
+      body: getCurrentView(currentViewIndex),
     );
   }
 }

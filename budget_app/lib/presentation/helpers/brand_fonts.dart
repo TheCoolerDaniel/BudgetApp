@@ -59,6 +59,14 @@ const copyLight = TextStyle(
   decoration: TextDecoration.none,
 );
 
+const copyInactive = TextStyle(
+  fontFamily: fontFamilyDefault,
+  color: brand_colors.inactiveColor,
+  fontSize: _sizeCopy,
+  fontWeight: _weightDefault,
+  decoration: TextDecoration.none,
+);
+
 const detailDark = TextStyle(
   fontFamily: fontFamilyDefault,
   color: brand_colors.copyDark,

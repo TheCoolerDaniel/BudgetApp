@@ -4,10 +4,11 @@ import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
-import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
+import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 import '../../core/tertiary_button.dart';
 import '../../navigation/home_page.dart';
+import 'onboarding_gradient_view.dart';
 
 class WelcomeView extends StatelessWidget {
   final VoidCallback continueOnboarding;
@@ -19,50 +20,27 @@ class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height,
-      width: MediaQuery.of(context).size.width,
-      padding: const EdgeInsets.only(
-        top: spacing.appBarOffsetBottom,
-        bottom: spacing.buttonOffsetBottom,
-        left: spacing.paddingSide,
-        right: spacing.paddingSide,
-      ),
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: brand_colors.mainGradient,
+    return OnboardingGradientView(
+      title: "Willkommen bei Turbo Budget!",
+      description:
+          "Ein konkretes Sparziel motiviert dich dazu, deine finanziellen Ziele zu erreichen. Bist du bereit?",
+      content: [
+        PrimaryButton(
+          text: "Sparziel setzen",
+          onPressed: continueOnboarding,
         ),
-      ),
-      child: SafeArea(
-        child: Column(
-          children: [
-            const Text("Willkommen bei Turbo Budget!",
-                style: brand_fonts.titleLight),
-            const Text(
-              "Ein konkretes Sparziel motiviert dich dazu, deine finanziellen Ziele zu erreichen. Bist du bereit?",
-              style: brand_fonts.copyLight,
-            ),
-            const Expanded(child: SizedBox()),
-            PrimaryButton(
-              text: "Sparziel setzen",
-              onPressed: continueOnboarding,
-            ),
-            TertiaryButton(
-              text: "Überspringen",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
-              },
-            ),
-          ],
+        TertiaryButton(
+          text: "Überspringen",
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const HomePage(),
+              ),
+            );
+          },
         ),
-      ),
+      ],
     );
   }
 }

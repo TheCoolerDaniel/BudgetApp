@@ -3,7 +3,7 @@ import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
-import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
+import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 import 'package:budget_app/presentation/pages/analysis/investment_tile.dart';
 import 'package:budget_app/presentation/core/primary_button.dart';
@@ -23,16 +23,16 @@ class AnalysisView extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.only(
-        top: spacing.appBarOffsetBottom,
-        bottom: spacing.buttonOffsetBottom,
-        left: spacing.paddingSide,
-        right: spacing.paddingSide,
+        top: constants.appBarOffsetBottom,
+        bottom: constants.buttonOffsetBottom,
+        left: constants.paddingSide,
+        right: constants.paddingSide,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           QuickPeek(),
-          SizedBox(height: spacing.separatorSmall),
+          SizedBox(height: constants.separatorSmall),
           InvestmentTile(investment: investment),
           Expanded(child: SizedBox()),
           Center(

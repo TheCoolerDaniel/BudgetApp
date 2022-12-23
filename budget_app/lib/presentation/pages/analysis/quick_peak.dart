@@ -3,7 +3,7 @@ import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
-import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
+import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 class QuickPeek extends StatelessWidget {
   const QuickPeek({
@@ -19,7 +19,7 @@ class QuickPeek extends StatelessWidget {
       children: [
         Text("Veränderung", style: brand_fonts.titleDark),
         Text("+ CHF ${value - cost}.-", style: brand_fonts.titleDark),
-        SizedBox(height: spacing.separatorSmall),
+        SizedBox(height: constants.separatorSmall),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -38,7 +38,7 @@ class QuickPeek extends StatelessWidget {
           ],
         ),
         SizedBox(
-          height: spacing.separatorMedium,
+          height: constants.separatorMedium,
         ),
         Container(
           height: 2,

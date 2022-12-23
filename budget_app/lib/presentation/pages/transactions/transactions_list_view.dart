@@ -2,7 +2,7 @@ import 'package:budget_app/presentation/pages/transactions/transactions_add_view
 import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_colors.dart'
     as brand_colors;
-import 'package:budget_app/presentation/helpers/spacing.dart' as spacing;
+import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 import '../../core/primary_button.dart';
 import 'transactions_group.dart';
@@ -49,7 +49,7 @@ class TransactionsListView extends StatelessWidget {
           },
         ),
         SizedBox(
-          height: spacing.buttonOffsetBottom,
+          height: constants.buttonOffsetBottom,
         ),
       ],
     );

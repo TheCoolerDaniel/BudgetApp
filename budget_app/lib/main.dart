@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
 
-import 'package:budget_app/presentation/pages/onboarding/onboaring_page.dart';
+import 'package:budget_app/presentation/pages/onboarding/onboarding_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'TurboBudget',
+      title: 'Turbo Budget',
       theme: ThemeData(
         fontFamily: brand_fonts.fontFamilyDefault,
       ),
