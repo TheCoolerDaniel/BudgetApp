@@ -69,6 +69,9 @@ flutter:
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
 
+  assets:
+      - assets/icons/
+
   fonts:
     - family: Poppins
       fonts:
