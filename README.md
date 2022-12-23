@@ -1,8 +1,8 @@
 # Turbo Budget
-## Projektarbeit: Budget App für Studierende.
+**Projektarbeit: Budget App für Studierende.**
 
-###Autor:
+**Autor:**
 Daniel Stefania
 
-###Im Rahmen von:
+**Im Rahmen von:**
 Projektarbeit an der ZHAW, betreut von Prof. Dr. Hans-Peter Hutter.
