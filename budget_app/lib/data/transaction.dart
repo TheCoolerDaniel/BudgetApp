@@ -2,7 +2,7 @@ import 'package:budget_app/data/category.dart';
 import 'package:intl/intl.dart';
 
 class Transaction {
-  final int amount;
+  final double amount;
   final TransactionCategory category;
   final String comment;
   final DateTime transactionTime;

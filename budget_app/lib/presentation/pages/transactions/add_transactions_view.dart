@@ -8,12 +8,26 @@ import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 import 'package:budget_app/presentation/core/custom_app_bar.dart';
 import 'package:budget_app/presentation/core/primary_button.dart';
 
-class AddTransactionView extends StatelessWidget {
+import '../../../data/category.dart';
+import '../../../data/transaction.dart';
+
+class AddTransactionView extends StatefulWidget {
   final VoidCallback saveAction;
   const AddTransactionView({
     Key? key,
     required this.saveAction,
   }) : super(key: key);
+
+  @override
+  State<AddTransactionView> createState() => _AddTransactionViewState();
+}
+
+class _AddTransactionViewState extends State<AddTransactionView> {
+  double amount = 0;
+  TransactionCategory category = TransactionCategory(
+      name: "Nahrungsmittel", icon: SizedBox(), color: Colors.red);
+  DateTime transactionDate = DateTime.now();
+  String comment = "";
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +47,7 @@ class AddTransactionView extends StatelessWidget {
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   "Betrag",
                   style: brand_fonts.copyDark,
@@ -52,6 +66,9 @@ class AddTransactionView extends StatelessWidget {
                         BoxConstraints(minWidth: 0, minHeight: 0),
                     hintText: "0.00",
                   ),
+                  onChanged: ((value) {
+                    amount = double.parse(value);
+                  }),
                 ),
               ],
             ),
@@ -82,6 +99,9 @@ class AddTransactionView extends StatelessWidget {
                   autofocus: true,
                   keyboardType: TextInputType.text,
                   decoration: InputDecoration.collapsed(hintText: "Notiz"),
+                  onChanged: (value) {
+                    comment = value;
+                  },
                 ),
               ),
             ),
@@ -90,7 +110,19 @@ class AddTransactionView extends StatelessWidget {
             ),
             PrimaryButton(
               text: "Speichern",
-              onPressed: saveAction,
+              onPressed: () {
+                state.transactions.add(
+                  Transaction(
+                    amount: amount,
+                    category: category,
+                    comment: comment,
+                    transactionTime: transactionDate,
+                    enteredTime: DateTime.now(),
+                  ),
+                );
+                widget.saveAction();
+                Navigator.pop(context);
+              },
             )
           ],
         ),

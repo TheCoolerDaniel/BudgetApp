@@ -107,22 +107,7 @@ class _TransactionsViewState extends State<TransactionsView> {
                 MaterialPageRoute(
                   builder: (context) => AddTransactionView(
                     saveAction: () {
-                      Navigator.pop(context);
-                      setState(() {
-                        state.transactions.add(
-                          Transaction(
-                            amount: 100,
-                            category: TransactionCategory(
-                              name: "Verpflegung",
-                              icon: SizedBox(),
-                              color: Colors.red,
-                            ),
-                            comment: "Pizza bestellt",
-                            transactionTime: DateTime.now(),
-                            enteredTime: DateTime.now(),
-                          ),
-                        );
-                      });
+                      setState(() {});
                     },
                   ),
                 ),
