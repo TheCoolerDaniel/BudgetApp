@@ -6,6 +6,7 @@ import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
 import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
+import '../../app_state.dart';
 import '../../core/custom_text_field.dart';
 import '../../core/tertiary_button.dart';
 import '../../navigation/home_page.dart';
@@ -22,18 +23,27 @@ class ChooseGoalView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnboardingGradientView(
-      title: "Worauf möchtest du sparen?",
+      title: "Wofür möchtest du sparen?",
       content: [
-        const CustomTextField(
+        const SizedBox(height: constants.separatorSmall),
+        CustomTextField(
           label: "Beschreibung",
           hinttext: "z.B. erstes eigenes Auto",
           labelStyle: brand_fonts.copyLight,
+          onChanged: (value) {
+            state.savingGoal = value;
+          },
         ),
-        const CustomTextField(
+        const SizedBox(height: constants.separatorSmall),
+        CustomTextField(
           label: "Notwendiger Betrag",
           hinttext: "z.B. CHF 10'000.-",
           labelStyle: brand_fonts.copyLight,
+          onChanged: (value) {
+            state.amountNeeded = double.parse(value);
+          },
         ),
+        const SizedBox(height: constants.separatorMedium),
         PrimaryButton(
           text: "Weiter",
           onPressed: continueOnboarding,

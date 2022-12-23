@@ -21,22 +21,27 @@ class WelcomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OnboardingGradientView(
+      leadingIcon: const Image(
+        height: constants.iconHeight,
+        image: AssetImage("assets/icons/lightning.png"),
+      ),
       title: "Willkommen bei Turbo Budget!",
       description:
           "Ein konkretes Sparziel motiviert dich dazu, deine finanziellen Ziele zu erreichen. Bist du bereit?",
       content: [
+        const SizedBox(height: constants.separatorMedium),
         PrimaryButton(
           text: "Sparziel setzen",
           onPressed: continueOnboarding,
         ),
         TertiaryButton(
+          isLight: true,
           text: "Überspringen",
           onPressed: () {
-            Navigator.push(
+            Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
+              MaterialPageRoute(builder: (context) => const HomePage()),
+              (Route<dynamic> route) => false,
             );
           },
         ),

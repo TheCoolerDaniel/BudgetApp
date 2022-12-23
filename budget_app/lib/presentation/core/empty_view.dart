@@ -6,24 +6,26 @@ import 'package:budget_app/presentation/helpers/brand_fonts.dart'
 import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 class EmptyView extends StatelessWidget {
-  final String iconAddress;
   final String title;
   final String description;
+  final String? iconAddress;
   const EmptyView({
     Key? key,
-    required this.iconAddress,
     required this.title,
     required this.description,
+    this.iconAddress,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image(
-          height: constants.iconHeight,
-          image: AssetImage(iconAddress),
-        ),
+        if (iconAddress != null)
+          Image(
+            height: constants.iconHeight,
+            image: AssetImage(iconAddress!),
+          ),
         Text(
           title,
           style: brand_fonts.titleDark,
@@ -32,6 +34,8 @@ class EmptyView extends StatelessWidget {
           description,
           style: brand_fonts.copyDark,
         ),
+        // Offsetting for button height
+        const SizedBox(height: constants.appBarOffsetBottom * 2),
       ],
     );
   }

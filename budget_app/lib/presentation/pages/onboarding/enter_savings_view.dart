@@ -1,3 +1,4 @@
+import 'package:budget_app/presentation/app_state.dart';
 import 'package:budget_app/presentation/core/custom_text_field.dart';
 import 'package:budget_app/presentation/core/primary_button.dart';
 import 'package:budget_app/presentation/pages/onboarding/onboarding_gradient_view.dart';
@@ -23,18 +24,27 @@ class EnterSavingsView extends StatelessWidget {
       description:
           "Gib eine grobe Schätzung ab. Du kannst die Angaben jederzeit anpassen.",
       content: [
-        const CustomTextField(
+        const SizedBox(height: constants.separatorSmall),
+        CustomTextField(
           label: "Bisherige Ersparnisse",
           hinttext: "z.B. CHF 1'000.-",
           labelStyle: brand_fonts.copyLight,
+          onChanged: (value) {
+            state.savingsEstimateTotal = double.parse(value);
+          },
         ),
-        const CustomTextField(
+        const SizedBox(height: constants.separatorSmall),
+        CustomTextField(
           label: "Wie viel kannst du monatlich sparen?",
-          hinttext: "z.B. CHF 10'000.-",
+          hinttext: "z.B. CHF 200.-",
           labelStyle: brand_fonts.copyLight,
+          onChanged: (value) {
+            state.savingsMonthlyEstimate = double.parse(value);
+          },
         ),
+        const SizedBox(height: constants.separatorMedium),
         PrimaryButton(
-          text: "Sparziel setzen",
+          text: "Speichern",
           onPressed: continueOnboarding,
         ),
       ],

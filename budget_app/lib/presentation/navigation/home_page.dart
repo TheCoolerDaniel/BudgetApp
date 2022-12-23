@@ -6,6 +6,7 @@ import 'package:budget_app/presentation/helpers/brand_fonts.dart'
 import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 
 import '../core/custom_app_bar.dart';
+import '../core/empty_view.dart';
 import '../pages/analysis/analysis_view.dart';
 import '../pages/transactions/transactions_view.dart';
 
@@ -33,6 +34,12 @@ class _HomePageState extends State<HomePage> {
       case 1:
         return _SelectableView(
           title: "Transaktionen",
+          view: const TransactionsView(),
+        );
+      case 2:
+        return _SelectableView(
+          title: "Einstellungen",
+          // TODO: Create settings view
           view: const TransactionsView(),
         );
       default:
@@ -78,7 +85,12 @@ class _HomePageState extends State<HomePage> {
       body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
-        child: selectedView.view,
+        child: _selectedIndex == 1
+            ? selectedView.view
+            : EmptyView(
+                title: "Coming Soon",
+                description: "Diese Ansicht ist noch in Bearbeitung. :)",
+              ),
       ),
     );
   }

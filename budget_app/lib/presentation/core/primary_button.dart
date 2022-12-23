@@ -39,7 +39,7 @@ class PrimaryButton extends StatelessWidget {
             child: Text(
               text,
               textAlign: TextAlign.center,
-              style: brand_fonts.copyDark,
+              style: brand_fonts.copyDarkStrong,
             ),
           ),
         ),

@@ -11,18 +11,23 @@ class CustomTextField extends StatelessWidget {
   final TextInputType? textInputType;
   final String? label;
   final String? hinttext;
+  final Function(String)? onChanged;
   const CustomTextField({
     Key? key,
     this.labelStyle = brand_fonts.copyDark,
     this.textInputType,
     this.label,
     this.hinttext,
+    this.onChanged,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    const double textFieldPadding = 10;
+    const double labelPadding = 5;
+
     final border = OutlineInputBorder(
-      borderRadius: BorderRadius.circular(1000),
+      borderRadius: BorderRadius.circular(constants.borderRadius),
       borderSide: const BorderSide(
         width: 0,
         style: BorderStyle.none,
@@ -33,13 +38,18 @@ class CustomTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (label != null)
-          Text(
-            label!,
-            style: labelStyle,
+          Padding(
+            padding: const EdgeInsets.only(bottom: labelPadding),
+            child: Text(
+              label!,
+              style: labelStyle,
+            ),
           ),
         TextField(
           keyboardType: textInputType,
+          onChanged: onChanged,
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(horizontal: textFieldPadding),
             hintStyle: brand_fonts.copyInactive,
             hintText: hinttext,
             border: border,

@@ -12,7 +12,7 @@ class CustomAppBar extends AppBar {
           title: title != null
               ? Text(
                   title,
-                  style: brand_fonts.titleDark,
+                  style: brand_fonts.titleLight,
                 )
               : const SizedBox(),
         );

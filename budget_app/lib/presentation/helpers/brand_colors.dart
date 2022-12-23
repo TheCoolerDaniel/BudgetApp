@@ -5,6 +5,7 @@ const primaryColor = Color(0xFF18A86B);
 const accentColor = Color(0xFF2FB383);
 const mainGradient = [accentColor, primaryColor];
 const backgroundColor = Color(0xFFFFFFFF);
+const backgroundColorDarkened = Color(0xFFEEEEEE);
 const primaryButton = [
   Color(0xFFF9DE7D),
   Color(0xFFF4AA0F),

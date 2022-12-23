@@ -30,7 +30,7 @@ const titleDark = TextStyle(
 const titleLight = TextStyle(
   fontFamily: fontFamilyDefault,
   color: brand_colors.copyLight,
-  fontSize: _sizeCopy,
+  fontSize: _sizeTitle,
   fontWeight: _weightStrong,
   decoration: TextDecoration.none,
 );
@@ -56,6 +56,22 @@ const copyLight = TextStyle(
   color: brand_colors.copyLight,
   fontSize: _sizeCopy,
   fontWeight: _weightDefault,
+  decoration: TextDecoration.none,
+);
+
+const copyDarkStrong = TextStyle(
+  fontFamily: fontFamilyDefault,
+  color: brand_colors.copyDark,
+  fontSize: _sizeCopy,
+  fontWeight: _weightStrong,
+  decoration: TextDecoration.none,
+);
+
+const copyLightStrong = TextStyle(
+  fontFamily: fontFamilyDefault,
+  color: brand_colors.copyLight,
+  fontSize: _sizeCopy,
+  fontWeight: _weightStrong,
   decoration: TextDecoration.none,
 );
 

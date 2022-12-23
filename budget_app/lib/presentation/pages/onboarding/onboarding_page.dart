@@ -13,14 +13,18 @@ import 'package:budget_app/presentation/helpers/constants.dart' as constants;
 import '../../core/tertiary_button.dart';
 
 class OnboardingPage extends StatefulWidget {
-  const OnboardingPage({Key? key}) : super(key: key);
+  final int? jumpToIndex;
+  const OnboardingPage({
+    Key? key,
+    this.jumpToIndex,
+  }) : super(key: key);
 
   @override
   State<OnboardingPage> createState() => _OnboardingPageState();
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
-  int currentViewIndex = 0;
+  int? currentViewIndex;
 
   Widget getCurrentView(int viewIndex) {
     switch (viewIndex) {
@@ -28,7 +32,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
         return WelcomeView(
           continueOnboarding: () {
             setState(() {
-              currentViewIndex++;
+              currentViewIndex = currentViewIndex! + 1;
             });
           },
         );
@@ -36,18 +40,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
         return ChooseGoalView(
           continueOnboarding: () {
             setState(() {
-              currentViewIndex++;
+              currentViewIndex = currentViewIndex! + 1;
             });
           },
         );
       case 2:
         return EnterSavingsView(
           continueOnboarding: () {
-            Navigator.push(
+            Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
+              MaterialPageRoute(builder: (context) => const HomePage()),
+              (Route<dynamic> route) => false,
             );
           },
         );
@@ -59,8 +62,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   @override
   Widget build(BuildContext context) {
+    currentViewIndex ??= widget.jumpToIndex ?? 0;
+
     return Scaffold(
-      body: getCurrentView(currentViewIndex),
+      body: getCurrentView(currentViewIndex!),
     );
   }
 }

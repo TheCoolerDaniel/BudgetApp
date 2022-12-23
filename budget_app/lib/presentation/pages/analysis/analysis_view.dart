@@ -12,37 +12,48 @@ import 'quick_peak.dart';
 import 'package:budget_app/data/investment.dart';
 
 class AnalysisView extends StatelessWidget {
-  AnalysisView({Key? key}) : super(key: key);
-
-  final investment =
-      Investment(symbol: "GME", name: "Game Stop", investmentTransactions: []);
+  const AnalysisView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.only(
+      alignment: Alignment.topLeft,
+      padding: const EdgeInsets.only(
         top: constants.appBarOffsetBottom,
         bottom: constants.buttonOffsetBottom,
         left: constants.paddingSide,
         right: constants.paddingSide,
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          QuickPeek(),
-          SizedBox(height: constants.separatorSmall),
-          InvestmentTile(investment: investment),
-          Expanded(child: SizedBox()),
-          Center(
-            child: PrimaryButton(
-              text: "Symbol hinzufügen",
-              onPressed: () {},
-            ),
+      child: _InvestmentView(),
+    );
+  }
+}
+
+class _InvestmentView extends StatelessWidget {
+  const _InvestmentView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final investment = Investment(
+        symbol: "GME", name: "Game Stop", investmentTransactions: []);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        QuickPeek(),
+        SizedBox(height: constants.separatorSmall),
+        InvestmentTile(investment: investment),
+        Expanded(child: SizedBox()),
+        Center(
+          child: PrimaryButton(
+            text: "Symbol hinzufügen",
+            onPressed: () {},
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

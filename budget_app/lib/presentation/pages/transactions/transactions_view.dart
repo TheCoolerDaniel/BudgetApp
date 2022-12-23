@@ -2,6 +2,7 @@ import 'package:budget_app/data/category.dart';
 import 'package:budget_app/data/transaction.dart';
 import 'package:budget_app/presentation/core/empty_view.dart';
 import 'package:budget_app/presentation/app_state.dart';
+import 'package:budget_app/presentation/pages/transactions/savings_progress_box.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_colors.dart'
@@ -29,11 +30,13 @@ class _TransactionsViewState extends State<TransactionsView> {
     transactions
         .sort(((a, b) => a.transactionTime.compareTo(b.transactionTime)));
 
+    Iterable<Transaction> transactionsReversed = transactions.reversed;
+
     // TODO DANIEL: Check only day without checking time.
     String currentDate = transactions.first.getDate();
     List<Transaction> sameDateList = [];
 
-    for (Transaction transaction in transactions) {
+    for (Transaction transaction in transactionsReversed) {
       if (transaction.getDate() != currentDate) {
         transactionGroups.add(
           TransactionsGroup(
@@ -73,23 +76,21 @@ class _TransactionsViewState extends State<TransactionsView> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  const SavingsProgressBox(),
                   Container(
                     alignment: Alignment.center,
                     height: 60,
                     width: MediaQuery.of(context).size.width,
-                    color: Colors.grey,
-                    child: Container(
-                      decoration:
-                          BoxDecoration(color: brand_colors.backgroundColor),
-                      alignment: Alignment.center,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(Icons.arrow_back_ios),
-                          Text("Heute"),
-                          Icon(Icons.arrow_forward_ios),
-                        ],
-                      ),
+                    decoration: BoxDecoration(
+                        color: brand_colors.backgroundColorDarkened),
+                    // Test
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Icon(Icons.arrow_back_ios),
+                        Text("Heute"),
+                        Icon(Icons.arrow_forward_ios),
+                      ],
                     ),
                   ),
                   Column(

@@ -31,7 +31,9 @@ class TertiaryButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: isLight ? brand_fonts.copyLight : brand_fonts.copyDark,
+            style: isLight
+                ? brand_fonts.copyLightStrong
+                : brand_fonts.copyDarkStrong,
           ),
         ),
       ),

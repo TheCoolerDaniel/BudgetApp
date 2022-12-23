@@ -10,6 +10,7 @@ import '../../core/tertiary_button.dart';
 import '../../navigation/home_page.dart';
 
 class OnboardingGradientView extends StatelessWidget {
+  final Widget? leadingIcon;
   final String title;
   final String? description;
   final List<Widget> content;
@@ -20,7 +21,8 @@ class OnboardingGradientView extends StatelessWidget {
     required this.title,
     this.description,
     required this.content,
-    this.mainAxisAlignment = MainAxisAlignment.start,
+    this.leadingIcon,
+    this.mainAxisAlignment = MainAxisAlignment.center,
   }) : super(key: key);
 
   @override
@@ -47,14 +49,27 @@ class OnboardingGradientView extends StatelessWidget {
           children: [
             Column(
               children: [
+                if (leadingIcon != null) leadingIcon!,
                 Text(title, style: brand_fonts.titleLight),
                 if (description != null)
-                  Text(description!, style: brand_fonts.copyLight),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: constants.separatorSmall),
+                    child: Text(
+                      description!,
+                      style: brand_fonts.copyLight,
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
               ],
             ),
             Column(
               children: content,
             ),
+            if (mainAxisAlignment == MainAxisAlignment.center)
+              const SizedBox(
+                height: constants.buttonOffsetBottom,
+              ),
           ],
         ),
       ),
