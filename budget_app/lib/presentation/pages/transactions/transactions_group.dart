@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../navigation/main_page.dart';
+import '../../navigation/home_page.dart';
 import 'transactions_tile.dart';
 
 class TransactionsGroup extends StatelessWidget {
@@ -9,7 +9,7 @@ class TransactionsGroup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(
-          horizontal: MainPage.horizontalPadding, vertical: 10),
+          horizontal: HomePage.horizontalPadding, vertical: 10),
       child: Column(
         children: [
           Row(

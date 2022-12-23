@@ -19,13 +19,17 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Clickable(
+      onPressed: onPressed,
       child: IntrinsicWidth(
         child: Container(
           constraints: BoxConstraints(
             minWidth: MediaQuery.of(context).size.width * 0.3,
           ),
           decoration: const BoxDecoration(
-            color: brand_colors.primaryColor,
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: brand_colors.primaryButton),
             borderRadius: BorderRadius.all(
               Radius.circular(20),
             ),
@@ -35,12 +39,11 @@ class PrimaryButton extends StatelessWidget {
             child: Text(
               text,
               textAlign: TextAlign.center,
-              style: brand_fonts.copyLight,
+              style: brand_fonts.copyDark,
             ),
           ),
         ),
       ),
-      onPressed: onPressed,
     );
   }
 }

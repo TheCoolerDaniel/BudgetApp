@@ -9,18 +9,18 @@ import '../core/custom_app_bar.dart';
 import '../pages/analysis/analysis_view.dart';
 import '../pages/transactions/transactions_list_view.dart';
 
-class MainPage extends StatefulWidget {
+class HomePage extends StatefulWidget {
   static const double horizontalPadding = 10;
 
-  const MainPage({
+  const HomePage({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   _SelectableView getView(int selectedIndex) {

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:budget_app/presentation/helpers/brand_fonts.dart'
     as brand_fonts;
-import 'presentation/navigation/main_page.dart';
+
+import 'package:budget_app/presentation/pages/onboarding/onboaring_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: brand_fonts.fontFamilyDefault,
       ),
-      home: const MainPage(),
+      home: const OnboardingPage(),
     );
   }
 }
